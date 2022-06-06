@@ -670,7 +670,7 @@ class _EnhanceStepperState extends State<EnhanceStepper> with TickerProviderStat
             ),
             child: Column(
               children: <Widget>[
-                Expanded(child: widget.steps[index].content),
+                widget.steps[index].content,
                 _buildVerticalControls(index),
               ],
             ),
@@ -799,18 +799,7 @@ class _EnhanceStepperState extends State<EnhanceStepper> with TickerProviderStat
           ),
         ),
         Expanded(
-          child: ListView(
-            physics: widget.physics,
-            padding: widget.padding ?? const EdgeInsets.all(24.0),
-            children: <Widget>[
-              AnimatedSize(
-                curve: Curves.fastOutSlowIn,
-                duration: kThemeAnimationDuration,
-                child: widget.steps[widget.currentStep].content,
-              ),
-              _buildVerticalControls(widget.currentStep),
-            ],
-          ),
+          child: widget.steps[widget.currentStep].content,
         ),
       ],
     );
